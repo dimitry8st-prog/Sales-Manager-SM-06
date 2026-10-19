@@ -1,0 +1,16 @@
+{
+  "label": "git_version",
+  "argv": [
+    "git",
+    "--version"
+  ],
+  "command": "git --version",
+  "cwd": "/home/runner/work/Sales-Manager-SM-06/Sales-Manager-SM-06",
+  "started_utc": "2026-10-19T05:07:45.957649+00:00",
+  "finished_utc": "2026-10-19T05:07:45.959506+00:00",
+  "exit_code": 0,
+  "stdout": "return/evidence/verification/git_version.stdout",
+  "stderr": "return/evidence/verification/git_version.stderr",
+  "unittest_counts": [],
+  "skips_found": false
+}

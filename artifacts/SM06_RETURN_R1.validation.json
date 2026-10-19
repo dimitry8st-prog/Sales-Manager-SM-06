@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "checks": [
+    {
+      "crc": "PASS",
+      "paths": "PASS",
+      "hashes": "PASS",
+      "manifest_files": 104,
+      "files": 105,
+      "issued_files_count": 57,
+      "protected_baseline_bytes": "PASS",
+      "source_bytes": "PASS",
+      "pass": 1
+    },
+    {
+      "crc": "PASS",
+      "paths": "PASS",
+      "hashes": "PASS",
+      "manifest_files": 104,
+      "files": 105,
+      "issued_files_count": 57,
+      "protected_baseline_bytes": "PASS",
+      "source_bytes": "PASS",
+      "pass": 2
+    }
+  ],
+  "artifact": {
+    "path": "SM06_RETURN_R1.zip",
+    "bytes": 156661,
+    "sha256": "3491550466bba8cad7afa025ae14e810e7e61fac4c03fab924aa607748090bf2"
+  }
+}

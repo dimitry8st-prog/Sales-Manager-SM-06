@@ -1,0 +1,17 @@
+{
+  "label": "pass2_package_before",
+  "argv": [
+    "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python",
+    "-B",
+    "PACKAGE_CHECK.py"
+  ],
+  "command": "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python -B PACKAGE_CHECK.py",
+  "cwd": "/tmp/sm06-verification-vp2jzsbe/pass2/SM06_Dmitry_R1",
+  "started_utc": "2026-10-19T05:07:47.581549+00:00",
+  "finished_utc": "2026-10-19T05:07:47.620188+00:00",
+  "exit_code": 0,
+  "stdout": "return/evidence/verification/pass2_package_before.stdout",
+  "stderr": "return/evidence/verification/pass2_package_before.stderr",
+  "unittest_counts": [],
+  "skips_found": false
+}

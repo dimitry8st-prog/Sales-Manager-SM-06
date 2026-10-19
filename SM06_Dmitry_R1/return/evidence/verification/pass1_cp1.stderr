@@ -1,0 +1,51 @@
+test_all25_actual_chain_exact_once_immutable (__main__.Acceptance.test_all25_actual_chain_exact_once_immutable) ... ok
+test_callback_exception_identity_and_no_retry (__main__.Acceptance.test_callback_exception_identity_and_no_retry) ... ok
+test_dependency_exception_identity (__main__.Acceptance.test_dependency_exception_identity) ... ok
+test_drift_missing_blank_zero_save_passthrough (__main__.Acceptance.test_drift_missing_blank_zero_save_passthrough) ... ok
+test_explicit_unavailable_no_downgrade_zero_save (__main__.Acceptance.test_explicit_unavailable_no_downgrade_zero_save) ... ok
+test_invalid_evidence_country_mixed_unknown_zero_save (__main__.Acceptance.test_invalid_evidence_country_mixed_unknown_zero_save) ... ok
+test_malformed_registry_no_raw_keyerror (__main__.Acceptance.test_malformed_registry_no_raw_keyerror) ... ok
+test_pack_shape_all5_kinds_and_no_fact_claim_ids (__main__.Acceptance.test_pack_shape_all5_kinds_and_no_fact_claim_ids) ... ok
+test_registry_binding_scope_mismatch (__main__.Acceptance.test_registry_binding_scope_mismatch) ... ok
+test_selection_priority_and_default (__main__.Acceptance.test_selection_priority_and_default) ... ok
+test_synthetic_extra_locale_no_hardcoded_enum (__main__.Acceptance.test_synthetic_extra_locale_no_hardcoded_enum) ... ok
+test_unapproved_fact_blank_subject_invalid_now_zero_save (__main__.Acceptance.test_unapproved_fact_blank_subject_invalid_now_zero_save) ... ok
+test_unavailable_english_default_rejects (__main__.Acceptance.test_unavailable_english_default_rejects) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.180s
+
+OK
+test_all_25_materials_exact_text_versions_callback_identity (test_sm06.CandidateLanguageTests.test_all_25_materials_exact_text_versions_callback_identity) ... ok
+test_all_evidence_fields_validated_before_priority_or_binding (test_sm06.CandidateLanguageTests.test_all_evidence_fields_validated_before_priority_or_binding) ... ok
+test_all_priority_combinations_and_exact_result_shape (test_sm06.CandidateLanguageTests.test_all_priority_combinations_and_exact_result_shape) ... ok
+test_callback_exception_identity_once_and_next_call_works (test_sm06.CandidateLanguageTests.test_callback_exception_identity_once_and_next_call_works) ... ok
+test_candidate_errors_never_echo_sensitive_input (test_sm06.CandidateLanguageTests.test_candidate_errors_never_echo_sensitive_input) ... ok
+test_consumer_rejects_blank_noninitial_subject_without_repair (test_sm06.CandidateLanguageTests.test_consumer_rejects_blank_noninitial_subject_without_repair) ... ok
+test_exact_evidence_fieldset_forbids_country_and_raw_text (test_sm06.CandidateLanguageTests.test_exact_evidence_fieldset_forbids_country_and_raw_text) ... ok
+test_f105_and_f106_exception_identity_from_real_validation (test_sm06.CandidateLanguageTests.test_f105_and_f106_exception_identity_from_real_validation) ... ok
+test_f106_full_tree_validation_precedes_scope_and_selection (test_sm06.CandidateLanguageTests.test_f106_full_tree_validation_precedes_scope_and_selection) ... ok
+test_first_binding_error_precedes_registry_scope_and_selection (test_sm06.CandidateLanguageTests.test_first_binding_error_precedes_registry_scope_and_selection) ... ok
+test_invalid_template_and_pin_ids_are_original_f120_errors (test_sm06.CandidateLanguageTests.test_invalid_template_and_pin_ids_are_original_f120_errors) ... ok
+test_locale_id_boundaries_case_and_unknown_are_not_normalized (test_sm06.CandidateLanguageTests.test_locale_id_boundaries_case_and_unknown_are_not_normalized) ... ok
+test_malformed_loaded_containers_use_f106_not_raw_key_errors (test_sm06.CandidateLanguageTests.test_malformed_loaded_containers_use_f106_not_raw_key_errors) ... ok
+test_missing_default_is_rejected_and_never_silently_replaced (test_sm06.CandidateLanguageTests.test_missing_default_is_rejected_and_never_silently_replaced) ... ok
+test_missing_template_is_not_replaced_and_never_saved (test_sm06.CandidateLanguageTests.test_missing_template_is_not_replaced_and_never_saved) ... ok
+test_naive_invalid_and_expired_now_use_real_first_binding (test_sm06.CandidateLanguageTests.test_naive_invalid_and_expired_now_use_real_first_binding) ... ok
+test_non_dict_root_arguments_fail_before_dependency_checks (test_sm06.CandidateLanguageTests.test_non_dict_root_arguments_fail_before_dependency_checks) ... ok
+test_original_dependency_exception_objects_are_not_wrapped (test_sm06.CandidateLanguageTests.test_original_dependency_exception_objects_are_not_wrapped) ... ok
+test_pack_contract_five_kinds_versions_and_no_claim_ids (test_sm06.CandidateLanguageTests.test_pack_contract_five_kinds_versions_and_no_claim_ids) ... ok
+test_public_signatures_and_error_contract (test_sm06.CandidateLanguageTests.test_public_signatures_and_error_contract) ... ok
+test_scope_checks_versions_defaults_and_product_english (test_sm06.CandidateLanguageTests.test_scope_checks_versions_defaults_and_product_english) ... ok
+test_selected_pack_pin_not_unselected_preference_pin (test_sm06.CandidateLanguageTests.test_selected_pack_pin_not_unselected_preference_pin) ... ok
+test_selection_deterministic_immutable_and_return_is_detached (test_sm06.CandidateLanguageTests.test_selection_deterministic_immutable_and_return_is_detached) ... ok
+test_selection_uses_no_filesystem_network_clock_or_callback (test_sm06.CandidateLanguageTests.test_selection_uses_no_filesystem_network_clock_or_callback) ... ok
+test_synthetic_locale_works_through_real_materialization (test_sm06.CandidateLanguageTests.test_synthetic_locale_works_through_real_materialization) ... ok
+test_unapproved_fact_and_blank_body_fail_before_save (test_sm06.CandidateLanguageTests.test_unapproved_fact_and_blank_body_fail_before_save) ... ok
+test_unsupported_higher_priority_does_not_downgrade_or_save (test_sm06.CandidateLanguageTests.test_unsupported_higher_priority_does_not_downgrade_or_save) ... ok
+test_whitespace_unicode_and_template_literals_remain_exact (test_sm06.CandidateLanguageTests.test_whitespace_unicode_and_template_literals_remain_exact) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.075s
+
+OK

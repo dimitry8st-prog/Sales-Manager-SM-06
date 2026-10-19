@@ -1,0 +1,21 @@
+{
+  "label": "pass1_cp1",
+  "argv": [
+    "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python",
+    "-B",
+    "acceptance/run.py",
+    "cp1"
+  ],
+  "command": "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python -B acceptance/run.py cp1",
+  "cwd": "/tmp/sm06-verification-vp2jzsbe/pass1/SM06_Dmitry_R1",
+  "started_utc": "2026-10-19T05:07:47.155362+00:00",
+  "finished_utc": "2026-10-19T05:07:47.525425+00:00",
+  "exit_code": 0,
+  "stdout": "return/evidence/verification/pass1_cp1.stdout",
+  "stderr": "return/evidence/verification/pass1_cp1.stderr",
+  "unittest_counts": [
+    13,
+    28
+  ],
+  "skips_found": false
+}
