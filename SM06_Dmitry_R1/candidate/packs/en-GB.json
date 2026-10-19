@@ -1,41 +1,41 @@
 {
   "schema_version": "FIRST_LANGUAGE_PACK_V1",
   "locale": "en-GB",
-  "version": "sm06-authoring-v1",
+  "version": "sm06-en-gb-r1",
   "templates": {
     "initial": {
       "kind": "INITIAL",
       "locale": "en-GB",
-      "subject": "Brief introduction",
-      "body": "May we briefly introduce ourselves?",
+      "subject": "A short note",
+      "body": "This is a neutral first message. A reply is welcome if you want to continue the conversation.",
       "fact_ids": []
     },
     "question": {
       "kind": "QUESTION",
       "locale": "en-GB",
-      "subject": "Information needed",
-      "body": "What information would you like to receive?",
+      "subject": "One clarifying question",
+      "body": "Which point would you like to clarify?",
       "fact_ids": []
     },
     "objection": {
       "kind": "OBJECTION",
       "locale": "en-GB",
-      "subject": "Clarifying your concerns",
-      "body": "Could you clarify what concerns you?",
+      "subject": "Your concern is noted",
+      "body": "The concern you raised is noted. No outcome is assumed.",
       "fact_ids": []
     },
     "followup": {
       "kind": "FOLLOWUP",
       "locale": "en-GB",
-      "subject": "Continue the conversation?",
-      "body": "Would you like to continue the conversation?",
+      "subject": "The earlier message remains open",
+      "body": "This is a polite reminder that the earlier message remains open.",
       "fact_ids": []
     },
     "handoff": {
       "kind": "HANDOFF",
       "locale": "en-GB",
-      "subject": "Conversation with a colleague",
-      "body": "Would you like to discuss this with a colleague?",
+      "subject": "A person can continue this conversation",
+      "body": "A person can continue this conversation from here. This message assigns no authority and states no decision.",
       "fact_ids": []
     }
   }

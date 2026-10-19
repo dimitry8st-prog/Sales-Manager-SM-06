@@ -1,41 +1,41 @@
 {
   "schema_version": "FIRST_LANGUAGE_PACK_V1",
   "locale": "da-DK",
-  "version": "sm06-authoring-v1",
+  "version": "sm06-da-dk-r1",
   "templates": {
     "initial": {
       "kind": "INITIAL",
       "locale": "da-DK",
-      "subject": "Kort præsentation",
-      "body": "Må vi kort præsentere os?",
+      "subject": "En kort bemærkning",
+      "body": "Dette er en neutral første meddelelse. Et svar er velkomment, hvis du ønsker at fortsætte samtalen.",
       "fact_ids": []
     },
     "question": {
       "kind": "QUESTION",
       "locale": "da-DK",
-      "subject": "Ønskede oplysninger",
-      "body": "Hvilke oplysninger vil du gerne modtage?",
+      "subject": "Et afklarende spørgsmål",
+      "body": "Hvilket punkt ønsker du at få afklaret?",
       "fact_ids": []
     },
     "objection": {
       "kind": "OBJECTION",
       "locale": "da-DK",
-      "subject": "Afklaring af dine betænkeligheder",
-      "body": "Vil du uddybe, hvad der giver dig betænkeligheder?",
+      "subject": "Din bekymring er noteret",
+      "body": "Den bekymring, du har nævnt, er noteret. Der forudsættes ikke noget resultat.",
       "fact_ids": []
     },
     "followup": {
       "kind": "FOLLOWUP",
       "locale": "da-DK",
-      "subject": "Skal vi fortsætte samtalen?",
-      "body": "Ønsker du at fortsætte samtalen?",
+      "subject": "Den tidligere besked er stadig åben",
+      "body": "Dette er en høflig påmindelse om, at den tidligere besked stadig er åben.",
       "fact_ids": []
     },
     "handoff": {
       "kind": "HANDOFF",
       "locale": "da-DK",
-      "subject": "Samtale med en kollega",
-      "body": "Ønsker du at drøfte dette med en kollega?",
+      "subject": "En person kan fortsætte samtalen",
+      "body": "En person kan fortsætte samtalen herfra. Beskeden tildeler ikke myndighed og angiver ingen afgørelse.",
       "fact_ids": []
     }
   }

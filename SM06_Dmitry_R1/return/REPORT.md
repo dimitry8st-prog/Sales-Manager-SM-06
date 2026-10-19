@@ -1,119 +1,79 @@
-# SM-06 R1 return report
+# Отчёт SM-06 R1
 
-Status: **PASS**. Python: 3.12.15.
-Source Git commit: 5aab8a338621828636b3d9346ed449f0764d3cde.
+Исполнитель: Дмитрий, стажёр. Идентификатор: SM-06-DMITRIY-STAZHER-20261019. Это компонентный возврат, а не закрытие всего SM-06.
 
-Two fresh extractions of the issued ZIP were overlaid with only permitted
-candidate/return files. CP0 and CP1 were executed in each extraction, bracketed
-by PACKAGE_CHECK. Every command below was actually invoked; stdout, stderr,
-argv, working directory, timestamps and exit codes are retained separately.
-The original provenance directory is issued historical evidence, not a fresh run.
+## Что реализовано
 
-## Commands and actual results
+`candidate/first_sm06_language.py` выбирает локаль по трём уже нормализованным свидетельствам и передаёт выбранный шаблон в настоящий F130. Текст не переводится, пробелы не нормализуются, повторной отправки нет.
 
-| Command label | Exit code | Unittest suite counts | Raw logs |
-|---|---:|---|---|
-| python_version | 0 | [] | return/evidence/verification/python_version.stdout / return/evidence/verification/python_version.stderr |
-| git_version | 0 | [] | return/evidence/verification/git_version.stdout / return/evidence/verification/git_version.stderr |
-| git_commit | 0 | [] | return/evidence/verification/git_commit.stdout / return/evidence/verification/git_commit.stderr |
-| pass1_package_before | 0 | [] | return/evidence/verification/pass1_package_before.stdout / return/evidence/verification/pass1_package_before.stderr |
-| pass1_cp0 | 0 | [32, 44, 32, 30, 5, 9] | return/evidence/verification/pass1_cp0.stdout / return/evidence/verification/pass1_cp0.stderr |
-| pass1_cp1 | 0 | [13, 28] | return/evidence/verification/pass1_cp1.stdout / return/evidence/verification/pass1_cp1.stderr |
-| pass1_package_after | 0 | [] | return/evidence/verification/pass1_package_after.stdout / return/evidence/verification/pass1_package_after.stderr |
-| pass2_package_before | 0 | [] | return/evidence/verification/pass2_package_before.stdout / return/evidence/verification/pass2_package_before.stderr |
-| pass2_cp0 | 0 | [32, 44, 32, 30, 5, 9] | return/evidence/verification/pass2_cp0.stdout / return/evidence/verification/pass2_cp0.stderr |
-| pass2_cp1 | 0 | [13, 28] | return/evidence/verification/pass2_cp1.stdout / return/evidence/verification/pass2_cp1.stderr |
-| pass2_package_after | 0 | [] | return/evidence/verification/pass2_package_after.stdout / return/evidence/verification/pass2_package_after.stderr |
+Порядок выбора:
 
-## Reproduce
+1. Неверный корневой тип, чужое поле или неверное значение evidence дают `SM06LanguageError('INVALID_INPUT')`.
+2. `validate_first_binding` проверяет привязку и время. Его ошибка выходит исходным объектом.
+3. `build_policy_language_fields` заново проверяет реестр. Если ключа `default_locale` нет, прямой доступ не делается, чтобы не возник `KeyError`.
+4. Default и карта версий привязки сравниваются с реестром. Продуктовый default — `en-GB`. Иначе `LANGUAGE_SCOPE_MISMATCH`.
+5. Берётся первое свидетельство не `None`. Если все три пустые, локаль `en-GB`, источник `default`. Локаль должна входить и в активные локали реестра, и в разрешённые локали привязки. Иначе `SELECTED_LOCALE_UNAVAILABLE`, без перехода к следующему свидетельству.
 
-From the repository root with Python 3.12 and Git:
-    python -B SM06_Dmitry_R1/return/verify_sm06.py --repo .
+Пять авторских пакетов лежат в `candidate/packs`. Версии: `sm06-en-gb-r1`, `sm06-ru-ru-r1`, `sm06-es-es-r1`, `sm06-da-dk-r1`, `sm06-uk-ua-r1`. В каждом пакете шаблоны `initial`, `question`, `objection`, `followup`, `handoff`. Фактов нет. Тексты нейтральные: первое сообщение, один вопрос, отметка сомнения, напоминание и передача человеку без полномочия и решения. Старые reference-пакеты EN/RU не заменялись.
 
-For direct execution after extracting the return ZIP:
-    cd SM06_Dmitry_R1
-    python -B PACKAGE_CHECK.py
-    python -B acceptance/run.py cp0
-    python -B acceptance/run.py cp1
+## Команды и коды выхода
 
-The candidate ABI is candidate/first_sm06_language.py. Consult CONTRACT.md
-and candidate/README.md before connecting trusted producers. An independent
-integration owner must compare snapshot hashes before copying only accepted
-module/packs into an approved location. Snapshot drift requires coordination,
-not overwriting a working SOURCE. Use an offline recorder for save_materials;
-a real callback may enqueue sales.send. This return
-does not alter production configuration or install an outbound sender.
+Python: `3.12.8 (tags/v3.12.8:2dc476b, Dec  3 2024, 19:30:04) [MSC v.1942 64 bit (AMD64)]`. Журнал: `return/logs/python_version.stdout`.
 
-## Recovery
+Каталог запуска — корень `SM06_Dmitry_R1`. У `unittest` текст тестов попадает в stderr, поэтому stdout у `cp0` и `cp1` пустой. Это видно и в исходном provenance пакета.
 
-Keep the issued ZIP and its recorded SHA-256. To recover a test environment,
-extract that ZIP into a fresh directory and overlay the permitted candidate
-and return files from this archive. Re-run PACKAGE_CHECK and both checkpoints.
-Do not restore by overwriting a shared runtime. A production installation
-requires a prior backup/manifest and an independently verified scoped restore;
-that installation/restore gate is NOT_RUN here. The legacy external RU seam
-identified in INTEGRATION.md remains the integration owner’s responsibility.
-No live state is changed here.
+| Журнал | Команда | Выход | Результат |
+|---|---|---|---|
+| `return/logs/package_check.*` | `python -B PACKAGE_CHECK.py` | 0 | PASS, 55 защищённых файлов |
+| `return/logs/cp0.*` | `python -B acceptance/run.py cp0` | 0 | 152 теста reference, пропусков нет |
+| `return/logs/cp1.*` | `python -B acceptance/run.py cp1` | 0 | 13 замороженных тестов и 14 тестов кандидата |
+| `return/logs/clean_package_check.*` | та же команда на чистой базе | 0 | PASS, 55 файлов |
+| `return/logs/clean_cp0.*` | `cp0` на чистой базе | 0 | 152 теста |
+| `return/logs/clean_cp1.*` | `cp1` на чистой базе | 0 | 13 + 14 тестов |
 
-## Scope and limits
+Чистая база собрана так: распакован исходный `SM-06_Dmitriy_Stazher_R1.zip`, поверх скопированы только `candidate/**` и `return/**`. Расхождений с `SHA256SUMS_PROTECTED.json` нет. SHA-256 исходного архива после работы: `cda40c663b51718a43a7e3cbefc4cc3622f353ba0c554fc7f4784a2b5c81f8b7`.
 
-A PASS requires all 55 manifest-protected files to remain unchanged; actual
-results are in the package-check logs and RESULT.json. Language pack texts are
-educational samples; internal semantic review is in SEMANTIC_REVIEW.md.
-Independent native-language acceptance, trusted-producer acceptance,
-production installation and complete SM-06 integration are NOT_RUN.
-No production credentials, database, dispatcher or outbound connection is used.
+Полная строка запуска в каждом `*.cmd` содержит локальный путь к интерпретатору. Смысл команды указан в таблице.
 
-Errors detected: []
+## Изменённые и добавленные пути
 
-## Changed files relative to the issued ZIP
+- `candidate/first_sm06_language.py`
+- `candidate/packs/en-GB.json`
+- `candidate/packs/ru-RU.json`
+- `candidate/packs/es-ES.json`
+- `candidate/packs/da-DK.json`
+- `candidate/packs/uk-UA.json`
+- `candidate/tests/__init__.py`
+- `candidate/tests/test_sm06_language.py`
+- `candidate/README.md`
+- `return/REPORT.md`
+- `return/TRACEABILITY.md`
+- `return/SHA256SUMS.json`
+- `return/logs/*`
 
-- candidate/README.md
-- candidate/first_sm06_language.py
-- candidate/packs/da-DK.json
-- candidate/packs/en-GB.json
-- candidate/packs/es-ES.json
-- candidate/packs/ru-RU.json
-- candidate/packs/uk-UA.json
-- candidate/tests/test_sm06.py
-- return/REPORT.md
-- return/RESULT.json
-- return/SEMANTIC_REVIEW.md
-- return/SHA256SUMS.json
-- return/TRACEABILITY.md
-- return/evidence/verification/candidate_test_inventory.json
-- return/evidence/verification/commands.json
-- return/evidence/verification/git_commit.command.json
-- return/evidence/verification/git_commit.stderr
-- return/evidence/verification/git_commit.stdout
-- return/evidence/verification/git_version.command.json
-- return/evidence/verification/git_version.stderr
-- return/evidence/verification/git_version.stdout
-- return/evidence/verification/pass1_cp0.command.json
-- return/evidence/verification/pass1_cp0.stderr
-- return/evidence/verification/pass1_cp0.stdout
-- return/evidence/verification/pass1_cp1.command.json
-- return/evidence/verification/pass1_cp1.stderr
-- return/evidence/verification/pass1_cp1.stdout
-- return/evidence/verification/pass1_package_after.command.json
-- return/evidence/verification/pass1_package_after.stderr
-- return/evidence/verification/pass1_package_after.stdout
-- return/evidence/verification/pass1_package_before.command.json
-- return/evidence/verification/pass1_package_before.stderr
-- return/evidence/verification/pass1_package_before.stdout
-- return/evidence/verification/pass2_cp0.command.json
-- return/evidence/verification/pass2_cp0.stderr
-- return/evidence/verification/pass2_cp0.stdout
-- return/evidence/verification/pass2_cp1.command.json
-- return/evidence/verification/pass2_cp1.stderr
-- return/evidence/verification/pass2_cp1.stdout
-- return/evidence/verification/pass2_package_after.command.json
-- return/evidence/verification/pass2_package_after.stderr
-- return/evidence/verification/pass2_package_after.stdout
-- return/evidence/verification/pass2_package_before.command.json
-- return/evidence/verification/pass2_package_before.stderr
-- return/evidence/verification/pass2_package_before.stdout
-- return/evidence/verification/python_version.command.json
-- return/evidence/verification/python_version.stderr
-- return/evidence/verification/python_version.stdout
-- return/verify_sm06.py
+`reference/**`, `acceptance/**`, `CONTRACT.md`, `TASK_ORDER.md`, `INTEGRATION.md`, `PACKAGE_CHECK.py`, `SHA256SUMS_PROTECTED.json`, `SHA256SUMS_REFERENCE.json` и `provenance/**` не редактировались.
+
+## Подключение и восстановление
+
+Эти шаги выполняет владелец интеграции. Данный возврат их не выполняет.
+
+1. До копирования сверить хеши рабочего исходника с `SHA256SUMS_PROTECTED.json`. При расхождении остановить затронутую интеграцию и согласовать новую базу.
+2. Принять точный ZIP отдельно как компонент.
+3. Сделать резервную копию и манифест. Проверить восстановление из этой копии. Наличие копии само по себе восстановлением не является.
+4. Скопировать только принятые `candidate/first_sm06_language.py` и `candidate/packs/*.json` в согласованный каталог. Остальные исходники не менять.
+5. Не подключать `save_materials` к живому worker. Для проверки используется автономный регистратор. Режим `NO_OUTBOUND` сохраняется. Действий с provider, отправкой, Make и рабочей базой этот пакет не предусматривает.
+6. Откат — вернуть резервную копию и заново сверить манифест.
+
+Старый внешний шов `sales_preparation_contract.py` в этот пакет не входит. По `INTEGRATION.md` он по-прежнему отвергает `ru-RU`. Его согласование остаётся у владельца интеграции.
+
+## Что сознательно не запускалось
+
+- Независимая оценка естественности переводов.
+- Реальные источники языковых свидетельств, кампанийные факты и рабочая активация пакетов.
+- Цепочка писем, ответов, follow-up, handoff и QA целиком, включая завершённый SM-03.
+- Установка, резервное копирование боевого контура и проверка восстановления на рабочем компьютере.
+- База данных, очередь, Make, провайдер и отправка.
+- Транзакции и конкуренция внешних систем: у компонента нет такого контракта, состояния и доступа к ним.
+- Публикация на GitHub.
+
+Повторная проверка уже собранного ZIP выполняется после записи `SHA256SUMS.json`, чтобы сумма не включала журнал, которого в момент подсчёта ещё нет. Её результат фиксируется рядом с архивом, в самом архиве его нет.

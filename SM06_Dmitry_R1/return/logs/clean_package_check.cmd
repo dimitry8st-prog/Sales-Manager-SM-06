@@ -1,0 +1,1 @@
+C:\Users\user\AppData\Local\Programs\Python\Python312\python.exe -B PACKAGE_CHECK.py

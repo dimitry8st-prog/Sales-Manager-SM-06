@@ -1,41 +1,41 @@
 {
   "schema_version": "FIRST_LANGUAGE_PACK_V1",
   "locale": "es-ES",
-  "version": "sm06-authoring-v1",
+  "version": "sm06-es-es-r1",
   "templates": {
     "initial": {
       "kind": "INITIAL",
       "locale": "es-ES",
-      "subject": "Breve presentación",
-      "body": "¿Nos permite presentarnos brevemente?",
+      "subject": "Una nota breve",
+      "body": "Este es un primer mensaje neutro. Si desea continuar la conversación, puede responder.",
       "fact_ids": []
     },
     "question": {
       "kind": "QUESTION",
       "locale": "es-ES",
-      "subject": "Información necesaria",
-      "body": "¿Qué información le gustaría recibir?",
+      "subject": "Una pregunta de aclaración",
+      "body": "¿Qué punto le gustaría aclarar?",
       "fact_ids": []
     },
     "objection": {
       "kind": "OBJECTION",
       "locale": "es-ES",
-      "subject": "Aclaración de sus dudas",
-      "body": "¿Podría indicar qué le genera dudas?",
+      "subject": "Su duda queda anotada",
+      "body": "La duda que planteó queda anotada. No se supone ningún resultado.",
       "fact_ids": []
     },
     "followup": {
       "kind": "FOLLOWUP",
       "locale": "es-ES",
-      "subject": "¿Continuamos la conversación?",
-      "body": "¿Le gustaría continuar la conversación?",
+      "subject": "El mensaje anterior sigue abierto",
+      "body": "Este es un recordatorio cortés de que el mensaje anterior sigue abierto.",
       "fact_ids": []
     },
     "handoff": {
       "kind": "HANDOFF",
       "locale": "es-ES",
-      "subject": "Conversación con un colega",
-      "body": "¿Le gustaría tratar este asunto con un colega?",
+      "subject": "Una persona puede continuar la conversación",
+      "body": "Una persona puede continuar esta conversación desde aquí. Este mensaje no asigna autoridad ni expresa una decisión.",
       "fact_ids": []
     }
   }
