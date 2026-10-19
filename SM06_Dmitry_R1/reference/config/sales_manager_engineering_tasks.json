@@ -1,0 +1,209 @@
+{
+  "schema_version": "STRATIVON_ENGINEERING_TASKS_V1",
+  "goal": "Создать универсального автономного Sales Manager, который выполняет произвольные цели продаж из параметров компаний и их кампаний, ведёт клиента до заинтересованного человеческого ответа и передачи оператору, работает на английском с адаптацией на испанский, датский и украинский и непрерывно повышает качество продаж на основе проверенных результатов.",
+  "tasks": [
+    {
+      "id": "SM-01",
+      "task": "Единая цель, архитектура и целевые параметры",
+      "status": "RECORDED",
+      "acceptance": "Требования владельца сохранены и доступны из README.",
+      "depends_on": []
+    },
+    {
+      "id": "SM-02",
+      "task": "Универсальная инструкция discovery и сохранение параметров",
+      "status": "BLOCKED",
+      "acceptance": "Произвольная цель меняет стратегию без изменения ядра; ограничения кампаний не смешиваются.",
+      "evidence": [
+        "Make agent 8 readback at 2026-09-12T06:45:11.147Z",
+        "campaign_parameter_validation_v2.json: exact offer and goal readback passed",
+        "discovery_universal_result.json: response contract passed, semantic qualification failed",
+        "Make module 8 qualification clarification saved and read back at 2026-09-12T07:28:31.823Z",
+        "discovery_qualification_checked_result.json: provider-as-buyer / missing-contact response rejected",
+        "Make module 90 v2 deployed; 21 contract checks passed locally and in Make execution 5ac2bcc492344001871b0c51e3c9f903",
+        "2026-09-12T10:18:15.501Z Make tool 70 input updated to carry full campaign context and primary evidence requirements; mapper readback matched; topology/NO_OUTBOUND preserved",
+        "2026-09-12 11:36 UTC: approved request cp1-current-discovery-b53791c6-c71e-474b-a16e-4a4475509a87, Make execution 9ca8149799354d21a6c616eaa635c691; full campaign context reached module70, targeted query empty, no qualified lead; see /home/b2b_volodymyr_thai/strativon-sales-runtime-r3-2-auto/checkpoint_evidence/cp1-discovery-20260912T1136Z",
+        "2026-09-12T12:26:08.024505+00:00: tool70 input binding passed; three durable discovery retests and restoration evidence in /home/b2b_volodymyr_thai/strativon-sales-runtime-r3-2-auto/checkpoint_evidence/cp1-retest-20260912T1205Z",
+        "2026-09-12T14:03:58.013798+00:00: Hunter integration deployed, 44 final-image tests, exact new worker queue PASS, same-payload discovery invalid contact rejected; role-framing trial rolled back. Evidence: /home/b2b_volodymyr_thai/strativon-sales-runtime-r3-2-auto/checkpoint_evidence/cp1-hunter-20260912T1300Z"
+      ],
+      "remaining": [
+        "Obtain and independently qualify a real prospect/contact against the campaign goal and primary sources",
+        "Verify live strategy switching for arbitrary company goals",
+        "Review hidden tool70 autofill instructions for campaign-specific restrictions; do not repeat working input setup"
+      ],
+      "depends_on": [
+        "SM-01"
+      ]
+    },
+    {
+      "id": "SM-03",
+      "task": "Общие инженерные проверки CP1",
+      "status": "BLOCKED",
+      "acceptance": "Задание проходит очередь и worker; результат сохранён; ошибки, повторы и восстановление подтверждены.",
+      "evidence": [
+        "Fresh queue task 628427b0-772b-4388-98dd-dfbcc054434b succeeded in one attempt",
+        "Routing/security checks from existing evidence",
+        "generic_contract_regression.json: 21 isolated deployed-source contract checks passed",
+        "Make preparation rebuilt as modules 97 -> 98 -> 99 -> 100; all other route topology/filters preserved",
+        "Live preparation execution e5afc4384aea418f88656bf3d5967ba6: HTTP 200, scoped NOT_READY for invalid fixture",
+        "Preparation adapter: 19 tests passed locally, in Cloud Shell, and inside built image 69d1cae531f4",
+        "Worker exclusive-ai-runtime-worker-cp1-prep-69d1cae531f4 activated, 100% traffic; runtime settings unchanged",
+        "New queue task 8c9a64fb-a4ee-4648-8578-f99e79d44bf5 SUCCEEDED in one attempt; exact new revision confirmed by log at 2026-09-12T09:08:01.612270Z",
+        "16 recovered source hashes matched previous SHA256 manifest",
+        "Synthetic reproducer confirmed self-generated mailbox evidence could be accepted by old boundary",
+        "Undeployed mailbox trust boundary candidate: 32 local tests passed; no live provider source integrated",
+        "2026-09-12 11:13 UTC: saved mailbox trust boundary passed 32 tests inside final image sha256:cb55c542ffeb454c0d027fbf12df366d2d756c7e1038c2d7f4638731e2f19431",
+        "2026-09-12 11:18 UTC: exclusive-ai-runtime-worker-cp1-mailbox-cb55c542ffeb ready, 100% traffic, runtime settings/NO_OUTBOUND preserved",
+        "2026-09-12 11:20 UTC: canonical source reconciled with active image, stale files backed up; see /home/b2b_volodymyr_thai/strativon-sales-runtime-r3-2-auto/checkpoint_evidence/cp1-resume-20260912",
+        "2026-09-12 11:36 UTC: approved request cp1-current-discovery-b53791c6-c71e-474b-a16e-4a4475509a87, Make execution 9ca8149799354d21a6c616eaa635c691; full campaign context reached module70, targeted query empty, no qualified lead; see /home/b2b_volodymyr_thai/strativon-sales-runtime-r3-2-auto/checkpoint_evidence/cp1-discovery-20260912T1136Z",
+        "2026-09-12T12:26:08.024505+00:00: tool70 input binding passed; three durable discovery retests and restoration evidence in /home/b2b_volodymyr_thai/strativon-sales-runtime-r3-2-auto/checkpoint_evidence/cp1-retest-20260912T1205Z",
+        "2026-09-12T14:03:58.013798+00:00: Hunter integration deployed, 44 final-image tests, exact new worker queue PASS, same-payload discovery invalid contact rejected; role-framing trial rolled back. Evidence: /home/b2b_volodymyr_thai/strativon-sales-runtime-r3-2-auto/checkpoint_evidence/cp1-hunter-20260912T1300Z"
+      ],
+      "remaining": [
+        "Complete positive sales-task chain: qualified discovery -> real lead -> verified preparation -> stored result",
+        "Resolve discovery semantic qualification failure without accepting placeholders or respondent contacts",
+        "Reconcile 30-second discovery/preparation worker HTTP deadline against observed 51.275-second Make discovery run before positive queue test"
+      ],
+      "depends_on": [
+        "SM-02"
+      ]
+    },
+    {
+      "id": "SM-04",
+      "task": "Регистрация и изменение произвольных кампаний",
+      "status": "PENDING",
+      "acceptance": "Новая цель добавляется параметрами; компании и кампании изолированы; нет фиксированного каталога направлений.",
+      "remaining": [
+        "Verify dynamic registration and connection ownership",
+        "Separate commercial quotas from architecture; existing catalog has a three-campaign package allowance"
+      ],
+      "depends_on": [
+        "SM-03"
+      ],
+      "evidence": [
+        "Owner reaffirmed: arbitrary number of direction configurations; concurrency/resources/budgets are separate operational limits, not a fixed architectural count."
+      ]
+    },
+    {
+      "id": "SM-05",
+      "task": "Ведение диалога и передача заинтересованного ответа",
+      "status": "PENDING",
+      "acceptance": "Обычные вопросы и возражения обрабатываются автоматически; интерес передаётся с контекстом; follow-up этого контакта приостановлен.",
+      "remaining": [
+        "Align existing human-reply routing with interested-response policy",
+        "Verify same-thread conversation state and duplicate processing"
+      ],
+      "depends_on": [
+        "SM-03"
+      ]
+    },
+    {
+      "id": "SM-06",
+      "task": "Английский, испанский, датский и украинский",
+      "status": "PENDING",
+      "acceptance": "Приоритет языка и английский fallback проходят через письма, материалы, ответы и QA.",
+      "remaining": [
+        "Add uk-UA to all relevant enums, routing and language packs",
+        "Run complete language regression"
+      ],
+      "depends_on": [
+        "SM-03"
+      ],
+      "evidence": [
+        "Four locales supported by preparation agent 98 and deployed preparation boundary; full language pipeline remains pending"
+      ]
+    },
+    {
+      "id": "SM-07",
+      "task": "Память результатов и навыков",
+      "status": "PENDING",
+      "acceptance": "Исход связан с компанией, кампанией, контактом, задачей, языком и версией; повторы не учитываются дважды.",
+      "depends_on": [
+        "SM-03"
+      ]
+    },
+    {
+      "id": "SM-08",
+      "task": "Оценка качества и причин результатов",
+      "status": "PENDING",
+      "acceptance": "Факты отделены от гипотез; качество заинтересованных ответов и передачи оценивается по цели кампании.",
+      "depends_on": [
+        "SM-05",
+        "SM-06",
+        "SM-07"
+      ]
+    },
+    {
+      "id": "SM-09",
+      "task": "Автономный цикл улучшений и исправлений",
+      "status": "PENDING",
+      "acceptance": "Есть исходная версия, гипотеза, тест, решение, внедрение и проверенный откат; плохие изменения отвергаются.",
+      "depends_on": [
+        "SM-08"
+      ]
+    },
+    {
+      "id": "SM-10",
+      "task": "Полная приёмка технологии",
+      "status": "PENDING",
+      "acceptance": "Воспроизведён весь цикл от параметров до передачи и обучения; готовность доказана журналами и тестами.",
+      "depends_on": [
+        "SM-04",
+        "SM-05",
+        "SM-06",
+        "SM-09"
+      ]
+    }
+  ],
+  "updated_at_utc": "2026-09-12T14:03:58.013798+00:00",
+  "current_release": {
+    "worker_revision": "exclusive-ai-runtime-worker-cp1-hunter-81b043326f3e",
+    "release_mode": "NO_OUTBOUND",
+    "full_cp1_accepted": false,
+    "image": "sha256:81b043326f3ebf541a3838657ebc937ef6a7b1453a06d05ec8b50ae85ca1eaab"
+  },
+  "continuation": {
+    "canonical_project_updates_synced": true,
+    "cloud_revision_currently_reverified": true,
+    "make_last_edit": "2026-09-12T14:00:49.071Z",
+    "outbound_sent": false,
+    "real_positive_sales_chain_verified": false,
+    "remote_device": "online_execution_verified",
+    "runtime_candidate_deployed": true,
+    "state": "BLOCKED_CP1_SOURCE_QUALIFICATION",
+    "live_discovery_request_executed": true,
+    "auto_review_rejection_resolved": true,
+    "user_approval_confirmed": true,
+    "live_discovery_execution_id": "040e6fd8de724ca59efc6a98e4a762f5",
+    "tool_input_binding_verified": true,
+    "live_mailbox_provider_connected": true,
+    "discovery_role_trial_rolled_back": true,
+    "generic_queue_verified": true,
+    "checkpoint_evidence": "/home/b2b_volodymyr_thai/strativon-sales-runtime-r3-2-auto/checkpoint_evidence/cp1-hunter-20260912T1300Z"
+  },
+  "owner_requirements_current": {
+    "arbitrary_parameterized_directions": true,
+    "autonomous_engineering_authorized": true,
+    "default_locale": "en-GB",
+    "evidence_based_locales": [
+      "es-ES",
+      "da-DK",
+      "uk-UA"
+    ],
+    "handoff_pauses_contact_followups": true,
+    "handoff_trigger": "INTERESTED_HUMAN_RESPONSE",
+    "improvement_cycle": [
+      "outcomes",
+      "evaluation",
+      "hypothesis",
+      "test",
+      "implementation",
+      "monitoring",
+      "rollback"
+    ],
+    "ordinary_dialogue_objections_followups": "AUTONOMOUS",
+    "release_mode": "NO_OUTBOUND",
+    "fixed_architectural_direction_count": null,
+    "concurrent_execution_bounded_separately": true
+  }
+}

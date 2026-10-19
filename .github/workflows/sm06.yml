@@ -1,0 +1,65 @@
+name: SM06 offline component acceptance
+on:
+  push:
+    branches: ["feat/sm06-language-r1"]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.12"
+      - name: Check untouched issued baseline
+        run: |
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib,json,os,subprocess,sys,tempfile,zipfile
+          repo=Path.cwd()
+          out=repo/'ci_baseline'
+          out.mkdir(exist_ok=True)
+          records=[]
+          env=dict(os.environ, PYTHONDONTWRITEBYTECODE='1')
+          with tempfile.TemporaryDirectory(prefix='sm06-baseline-') as td:
+              archive=repo/'SM-06_Dmitriy_Stazher_R1.zip'
+              with zipfile.ZipFile(archive) as z:
+                  assert z.testzip() is None
+                  assert all(not PurePosixPath(n).is_absolute() and '..' not in PurePosixPath(n).parts and '\\\\' not in n for n in z.namelist())
+                  z.extractall(td)
+              base=Path(td)/'SM06_Dmitry_R1'
+              manifest=json.loads((base/'SHA256SUMS_PROTECTED.json').read_text())
+              assert len(manifest)==55
+              for name,digest in manifest.items():
+                  assert hashlib.sha256((repo/'SM06_Dmitry_R1'/name).read_bytes()).hexdigest()==digest, name
+              (out/'versions.json').write_text(json.dumps({'python':sys.version,'source_commit':os.environ.get('GITHUB_SHA'),'archive_sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'protected_files':len(manifest)},indent=2))
+              for name,args,expected in [('package',[sys.executable,'-B','PACKAGE_CHECK.py'],0),('cp0',[sys.executable,'-B','acceptance/run.py','cp0'],0),('missing_candidate',[sys.executable,'-B','acceptance/run.py','cp1'],3)]:
+                  r=subprocess.run(args,cwd=base,env=env,capture_output=True,timeout=180)
+                  (out/(name+'.stdout.log')).write_bytes(r.stdout)
+                  (out/(name+'.stderr.log')).write_bytes(r.stderr)
+                  records.append({'name':name,'command':args,'exit_code':r.returncode,'expected_exit_code':expected})
+                  print(name,'exit=',r.returncode,'expected=',expected)
+                  (out/'COMMANDS.json').write_text(json.dumps(records,indent=2))
+                  assert r.returncode==expected, name
+          print('BASELINE_PASS; implementation and runtime activation not claimed')
+          
+          PY
+      - name: Verify and package candidate when present
+        run: |
+          if [ -f SM06_Dmitry_R1/return/verify_sm06.py ]; then
+            python -B SM06_Dmitry_R1/return/verify_sm06.py --repo .
+          else
+            echo "Candidate verification pending implementation"
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: SM06-offline-evidence
+          path: |
+            ci_baseline/
+            artifacts/
+          if-no-files-found: error

@@ -1,0 +1,14 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Process started with PID 5648 (shell: powershell.exe)\nInitial output:\n#< CLIXML\r\nsales_language_registry.py 520ebace73a563232a2ebb0fa41c1af9588b50b5955952ca576256f3bbda38f0\r\nsales_first_binding.py 8bf357366230a0098e44ce69069dc5d0e29cf5af4da8a002c620e2e7d91cce7b\r\nsales_action_locale.py 1aebba46aea057ad5492dfb6f2d59944d7b63fcee7bb9735e15fdef1b104c154\r\nsales_template_materialization.py a35f93ae5c991c76fe96510eaa4fba2ad00fc36550ddf3b63a4805bc72a050c1\r\nsales_runtime_materialization.py 40f2082e2afe7d9eaabe5f4beb451f8e83a579124c58b6d7c77c37035c9be972\r\nsales_preparation_contract.py fb41c7eb9622edcafe5fcba5cf24672457a1a1f5e5ab0539b63b5ed76b711cd8\r\nsales_rules.py 9fd72471d4f4d0db4cee0f3ee96d5e532392dcfc2e2a691a7e675aa6bfc89778\r\nconfig\\sales_manager_target_policy.json 797b1d6bf4d5120156fecd2557b8a0eb3ac6326153f89a514940eec432e3f407\r\nconfig\\sales_manager_engineering_tasks.json 0c3bcf37860c95dbb040997f9a0773832d28a261cafcd7d0e8fcf33db1d5bb1e\r\n<Objs Version=\"1.1.0.1\" xmlns=\"http://schemas.microsoft.com/powershell/2004/04\"><Obj S=\"progress\" RefId=\"0\"><TN RefId=\"0\"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>�����⮢�� ���㫥� � ��ࢮ�� �ᯮ�짮�����.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=\"progress\" RefId=\"1\"><TNRef RefId=\"0\" /><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>�����⮢�� ���㫥� � ��ࢮ�� �ᯮ�짮�����.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>\n✅ Process 5648 has finished execution"
+    },
+    {
+      "type": "text",
+      "text": "\n[executed on device: DESKTOP-29M52RR (dff75fdd-b5be-42e5-8443-399ffea492ce)]"
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "path": "sales_language_registry.py",
+    "remote_sha256": "520ebace73a563232a2ebb0fa41c1af9588b50b5955952ca576256f3bbda38f0",
+    "snapshot_sha256": "520ebace73a563232a2ebb0fa41c1af9588b50b5955952ca576256f3bbda38f0",
+    "match": true
+  },
+  {
+    "path": "sales_first_binding.py",
+    "remote_sha256": "8bf357366230a0098e44ce69069dc5d0e29cf5af4da8a002c620e2e7d91cce7b",
+    "snapshot_sha256": "8bf357366230a0098e44ce69069dc5d0e29cf5af4da8a002c620e2e7d91cce7b",
+    "match": true
+  },
+  {
+    "path": "sales_action_locale.py",
+    "remote_sha256": "1aebba46aea057ad5492dfb6f2d59944d7b63fcee7bb9735e15fdef1b104c154",
+    "snapshot_sha256": "1aebba46aea057ad5492dfb6f2d59944d7b63fcee7bb9735e15fdef1b104c154",
+    "match": true
+  },
+  {
+    "path": "sales_template_materialization.py",
+    "remote_sha256": "a35f93ae5c991c76fe96510eaa4fba2ad00fc36550ddf3b63a4805bc72a050c1",
+    "snapshot_sha256": "a35f93ae5c991c76fe96510eaa4fba2ad00fc36550ddf3b63a4805bc72a050c1",
+    "match": true
+  },
+  {
+    "path": "sales_runtime_materialization.py",
+    "remote_sha256": "40f2082e2afe7d9eaabe5f4beb451f8e83a579124c58b6d7c77c37035c9be972",
+    "snapshot_sha256": "40f2082e2afe7d9eaabe5f4beb451f8e83a579124c58b6d7c77c37035c9be972",
+    "match": true
+  },
+  {
+    "path": "sales_preparation_contract.py",
+    "remote_sha256": "fb41c7eb9622edcafe5fcba5cf24672457a1a1f5e5ab0539b63b5ed76b711cd8",
+    "snapshot_sha256": "fb41c7eb9622edcafe5fcba5cf24672457a1a1f5e5ab0539b63b5ed76b711cd8",
+    "match": true
+  },
+  {
+    "path": "sales_rules.py",
+    "remote_sha256": "9fd72471d4f4d0db4cee0f3ee96d5e532392dcfc2e2a691a7e675aa6bfc89778",
+    "snapshot_sha256": "9fd72471d4f4d0db4cee0f3ee96d5e532392dcfc2e2a691a7e675aa6bfc89778",
+    "match": true
+  },
+  {
+    "path": "config\\sales_manager_target_policy.json",
+    "remote_sha256": "797b1d6bf4d5120156fecd2557b8a0eb3ac6326153f89a514940eec432e3f407",
+    "snapshot_sha256": "797b1d6bf4d5120156fecd2557b8a0eb3ac6326153f89a514940eec432e3f407",
+    "match": true
+  },
+  {
+    "path": "config\\sales_manager_engineering_tasks.json",
+    "remote_sha256": "0c3bcf37860c95dbb040997f9a0773832d28a261cafcd7d0e8fcf33db1d5bb1e",
+    "snapshot_sha256": "0c3bcf37860c95dbb040997f9a0773832d28a261cafcd7d0e8fcf33db1d5bb1e",
+    "match": true
+  }
+]
