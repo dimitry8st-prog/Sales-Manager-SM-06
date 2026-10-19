@@ -1,0 +1,42 @@
+{
+  "schema_version": "FIRST_LANGUAGE_PACK_V1",
+  "locale": "es-ES",
+  "version": "sm06-authoring-v1",
+  "templates": {
+    "initial": {
+      "kind": "INITIAL",
+      "locale": "es-ES",
+      "subject": "Breve presentación",
+      "body": "¿Nos permite presentarnos brevemente?",
+      "fact_ids": []
+    },
+    "question": {
+      "kind": "QUESTION",
+      "locale": "es-ES",
+      "subject": "Información necesaria",
+      "body": "¿Qué información le gustaría recibir?",
+      "fact_ids": []
+    },
+    "objection": {
+      "kind": "OBJECTION",
+      "locale": "es-ES",
+      "subject": "Aclaración de sus dudas",
+      "body": "¿Podría indicar qué le genera dudas?",
+      "fact_ids": []
+    },
+    "followup": {
+      "kind": "FOLLOWUP",
+      "locale": "es-ES",
+      "subject": "¿Continuamos la conversación?",
+      "body": "¿Le gustaría continuar la conversación?",
+      "fact_ids": []
+    },
+    "handoff": {
+      "kind": "HANDOFF",
+      "locale": "es-ES",
+      "subject": "Conversación con un colega",
+      "body": "¿Le gustaría tratar este asunto con un colega?",
+      "fact_ids": []
+    }
+  }
+}

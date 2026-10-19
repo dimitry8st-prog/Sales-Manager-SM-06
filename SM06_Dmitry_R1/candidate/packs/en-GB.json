@@ -1,0 +1,42 @@
+{
+  "schema_version": "FIRST_LANGUAGE_PACK_V1",
+  "locale": "en-GB",
+  "version": "sm06-authoring-v1",
+  "templates": {
+    "initial": {
+      "kind": "INITIAL",
+      "locale": "en-GB",
+      "subject": "Brief introduction",
+      "body": "May we briefly introduce ourselves?",
+      "fact_ids": []
+    },
+    "question": {
+      "kind": "QUESTION",
+      "locale": "en-GB",
+      "subject": "Information needed",
+      "body": "What information would you like to receive?",
+      "fact_ids": []
+    },
+    "objection": {
+      "kind": "OBJECTION",
+      "locale": "en-GB",
+      "subject": "Clarifying your concerns",
+      "body": "Could you clarify what concerns you?",
+      "fact_ids": []
+    },
+    "followup": {
+      "kind": "FOLLOWUP",
+      "locale": "en-GB",
+      "subject": "Continue the conversation?",
+      "body": "Would you like to continue the conversation?",
+      "fact_ids": []
+    },
+    "handoff": {
+      "kind": "HANDOFF",
+      "locale": "en-GB",
+      "subject": "Conversation with a colleague",
+      "body": "Would you like to discuss this with a colleague?",
+      "fact_ids": []
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "FIRST_LANGUAGE_PACK_V1",
+  "locale": "uk-UA",
+  "version": "sm06-authoring-v1",
+  "templates": {
+    "initial": {
+      "kind": "INITIAL",
+      "locale": "uk-UA",
+      "subject": "Коротке знайомство",
+      "body": "Чи можемо ми коротко представитися?",
+      "fact_ids": []
+    },
+    "question": {
+      "kind": "QUESTION",
+      "locale": "uk-UA",
+      "subject": "Необхідна інформація",
+      "body": "Яку інформацію ви хотіли б отримати?",
+      "fact_ids": []
+    },
+    "objection": {
+      "kind": "OBJECTION",
+      "locale": "uk-UA",
+      "subject": "Уточнення сумнівів",
+      "body": "Підкажіть, будь ласка, що викликає у вас сумніви?",
+      "fact_ids": []
+    },
+    "followup": {
+      "kind": "FOLLOWUP",
+      "locale": "uk-UA",
+      "subject": "Продовжимо розмову?",
+      "body": "Чи хотіли б ви продовжити розмову?",
+      "fact_ids": []
+    },
+    "handoff": {
+      "kind": "HANDOFF",
+      "locale": "uk-UA",
+      "subject": "Розмова з колегою",
+      "body": "Чи хотіли б ви обговорити це питання з колегою?",
+      "fact_ids": []
+    }
+  }
+}

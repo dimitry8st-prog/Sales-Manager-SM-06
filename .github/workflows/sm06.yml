@@ -6,6 +6,8 @@ permissions:
   contents: read
 jobs:
   verify:
+    permissions:
+      contents: write
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
@@ -55,6 +57,11 @@ jobs:
           else
             echo "Candidate verification pending implementation"
           fi
+      - name: Publish verified return to feature branch
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -B .github/scripts/publish_sm06.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

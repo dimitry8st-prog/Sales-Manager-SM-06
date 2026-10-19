@@ -1,0 +1,42 @@
+{
+  "schema_version": "FIRST_LANGUAGE_PACK_V1",
+  "locale": "ru-RU",
+  "version": "sm06-authoring-v1",
+  "templates": {
+    "initial": {
+      "kind": "INITIAL",
+      "locale": "ru-RU",
+      "subject": "Краткое знакомство",
+      "body": "Можем ли мы кратко представиться?",
+      "fact_ids": []
+    },
+    "question": {
+      "kind": "QUESTION",
+      "locale": "ru-RU",
+      "subject": "Необходимая информация",
+      "body": "Какую информацию вы хотели бы получить?",
+      "fact_ids": []
+    },
+    "objection": {
+      "kind": "OBJECTION",
+      "locale": "ru-RU",
+      "subject": "Уточнение сомнений",
+      "body": "Подскажите, пожалуйста, что вызывает у вас сомнения?",
+      "fact_ids": []
+    },
+    "followup": {
+      "kind": "FOLLOWUP",
+      "locale": "ru-RU",
+      "subject": "Продолжим разговор?",
+      "body": "Хотели бы вы продолжить разговор?",
+      "fact_ids": []
+    },
+    "handoff": {
+      "kind": "HANDOFF",
+      "locale": "ru-RU",
+      "subject": "Разговор с коллегой",
+      "body": "Хотели бы вы обсудить этот вопрос с коллегой?",
+      "fact_ids": []
+    }
+  }
+}
